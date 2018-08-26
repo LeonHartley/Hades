@@ -21,11 +21,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hades.Data.WebApi", "Hades.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hades.Data.Models", "Hades.Data.Models\Hades.Data.Models.csproj", "{282FDE0B-2F82-48F8-B09A-7FE9E6F14B2D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hades.Data.Repositories", "Hades.Data.Repositories\Hades.Data.Repositories.csproj", "{26B86597-C9E5-43B0-87C7-0ACE415E3DA7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hades.Data.Repositories", "Hades.Data.Repositories\Hades.Data.Repositories.csproj", "{26B86597-C9E5-43B0-87C7-0ACE415E3DA7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hades.Data.Cassandra", "Hades.Data.Cassandra\Hades.Data.Cassandra.csproj", "{01FFA0DD-0AAF-4D9E-AE54-9C88B6D24517}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hades.Data.Cassandra", "Hades.Data.Cassandra\Hades.Data.Cassandra.csproj", "{01FFA0DD-0AAF-4D9E-AE54-9C88B6D24517}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hades.Data.Cache", "Hades.Data.Cache\Hades.Data.Cache.csproj", "{6D491401-38B0-4082-8122-F5D55D3A4203}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hades.Data.Cache", "Hades.Data.Cache\Hades.Data.Cache.csproj", "{6D491401-38B0-4082-8122-F5D55D3A4203}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hades.Data.Client", "Hades.Data.Client\Hades.Data.Client.csproj", "{D06AB630-4429-45FA-B5CE-AD8D5FC04AFD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -69,6 +71,10 @@ Global
 		{6D491401-38B0-4082-8122-F5D55D3A4203}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6D491401-38B0-4082-8122-F5D55D3A4203}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6D491401-38B0-4082-8122-F5D55D3A4203}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D06AB630-4429-45FA-B5CE-AD8D5FC04AFD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D06AB630-4429-45FA-B5CE-AD8D5FC04AFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D06AB630-4429-45FA-B5CE-AD8D5FC04AFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D06AB630-4429-45FA-B5CE-AD8D5FC04AFD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -83,6 +89,7 @@ Global
 		{26B86597-C9E5-43B0-87C7-0ACE415E3DA7} = {F288E541-D52E-410E-AF7A-7263CED46121}
 		{01FFA0DD-0AAF-4D9E-AE54-9C88B6D24517} = {F288E541-D52E-410E-AF7A-7263CED46121}
 		{6D491401-38B0-4082-8122-F5D55D3A4203} = {F288E541-D52E-410E-AF7A-7263CED46121}
+		{D06AB630-4429-45FA-B5CE-AD8D5FC04AFD} = {F288E541-D52E-410E-AF7A-7263CED46121}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {FF8064EC-06B9-4ACC-B218-52E98A75075B}

@@ -30,9 +30,13 @@ namespace Hades.Data.Cache
         public async Task<T> Get(long id)
         {
             var result = await _db.StringGetAsync(string.Format(_keyFormat, id));
-            var obj = JsonConvert.DeserializeObject<T>(result.ToString());
 
-            return obj;
+            if(result.HasValue)
+            {
+                return JsonConvert.DeserializeObject<T>(result.ToString());
+            }
+
+            return default(T);
         }
 
         public async Task<bool> Remove(long id)
