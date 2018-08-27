@@ -14,7 +14,7 @@ namespace Hades.Data.Client.Players
 
         public Task<Player> Authenticate(string ssoTicket)
         {
-            return Get<Player>("players/authenticate");
+            return Get<Player>(string.Format("players/authenticate/{0}", ssoTicket));
         }
     }
 }
