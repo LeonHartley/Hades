@@ -18,7 +18,7 @@ namespace Hades.Data.Client
             _requestFactory = requestFactory;
         }
 
-        public async Task<T> Get<T>(string endpoint)
+        protected async Task<T> Get<T>(string endpoint)
         {
             var message = _requestFactory.CreateRequest(HttpMethod.Get, endpoint, "");
 

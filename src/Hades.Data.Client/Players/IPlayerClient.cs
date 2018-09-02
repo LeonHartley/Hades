@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Hades.Data.Client.Players
 {
     public interface IPlayerClient
-    {
+    { 
         Task<Player> Authenticate(string ssoTicket);
     }
 }
