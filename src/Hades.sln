@@ -19,7 +19,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Hades.Data", "Hades.Data", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hades.Data.WebApi", "Hades.Data.WebApi\Hades.Data.WebApi.csproj", "{C5449D36-D9F3-4A81-8B75-50A47B646D5A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hades.Data.Models", "Hades.Data.Models\Hades.Data.Models.csproj", "{282FDE0B-2F82-48F8-B09A-7FE9E6F14B2D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hades.Data.Model", "Hades.Data.Models\Hades.Data.Model.csproj", "{282FDE0B-2F82-48F8-B09A-7FE9E6F14B2D}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hades.Data.Repositories", "Hades.Data.Repositories\Hades.Data.Repositories.csproj", "{26B86597-C9E5-43B0-87C7-0ACE415E3DA7}"
 EndProject
@@ -27,7 +27,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hades.Data.Cassandra", "Had
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hades.Data.Cache", "Hades.Data.Cache\Hades.Data.Cache.csproj", "{6D491401-38B0-4082-8122-F5D55D3A4203}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hades.Data.Client", "Hades.Data.Client\Hades.Data.Client.csproj", "{D06AB630-4429-45FA-B5CE-AD8D5FC04AFD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hades.Data.Client", "Hades.Data.Client\Hades.Data.Client.csproj", "{D06AB630-4429-45FA-B5CE-AD8D5FC04AFD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

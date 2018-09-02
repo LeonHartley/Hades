@@ -5,7 +5,18 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Hades.Data.Models\Hades.Data.Models.csproj" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="2.2.0-preview1-35029" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Hades.Data.Cache\Hades.Data.Cache.csproj" />
+    <ProjectReference Include="..\Hades.Data.Models\Hades.Data.Model.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Microsoft.Extensions.DependencyInjection">
+      <HintPath>..\..\..\..\..\..\..\Program Files\dotnet\sdk\NuGetFallbackFolder\microsoft.extensions.dependencyinjection\2.1.1\lib\netcoreapp2.0\Microsoft.Extensions.DependencyInjection.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>

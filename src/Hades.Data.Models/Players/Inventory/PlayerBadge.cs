@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Hades.Data.Models.Players.Inventory
+namespace Hades.Data.Model.Players.Inventory
 {
     public class PlayerBadge
     {

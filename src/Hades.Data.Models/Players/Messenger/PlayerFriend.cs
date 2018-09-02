@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Hades.Data.Models.Players.Messenger
+namespace Hades.Data.Model.Players.Messenger
 {
     public class PlayerFriend
     {

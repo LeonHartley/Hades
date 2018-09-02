@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Hades.Data.Client.Players
+namespace Hades.Data.Repositories.Services
 {
-    public interface IPlayerClient
+    public interface IPlayerService
     {
         Task<Player> Authenticate(string ssoTicket);
     }

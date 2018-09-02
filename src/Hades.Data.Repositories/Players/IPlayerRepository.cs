@@ -1,4 +1,4 @@
-﻿using Hades.Data.Models.Players;
+﻿using Hades.Data.Model.Players;
 using System.Threading.Tasks;
 
 namespace Hades.Data.Repositories.Players

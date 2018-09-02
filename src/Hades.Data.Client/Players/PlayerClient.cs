@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
-using Hades.Data.Models.Players;
+using Hades.Data.Model.Players;
 
 namespace Hades.Data.Client.Players
 {

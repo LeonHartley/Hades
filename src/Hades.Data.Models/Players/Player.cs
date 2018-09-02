@@ -1,19 +1,20 @@
-﻿using Hades.Data.Models.Players.Inventory;
-using Hades.Data.Models.Players.Messenger;
+﻿using Hades.Data.Cache;
+using Hades.Data.Model.Players.Inventory;
+using Hades.Data.Model.Players.Messenger;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Hades.Data.Models.Players
+namespace Hades.Data.Model.Players
 {
-    public class Player
+    public class Player : ICacheItem
     {
-        public long Id { get; }
+        public long Id { get; set;  }
 
-        public PlayerData Data { get; }
+        public PlayerData Data { get; set;  }
 
-        public List<PlayerFriend> Friends { get; }
+        public List<PlayerFriend> Friends { get; set; }
 
-        public List<PlayerBadge> Badges { get; }
+        public List<PlayerBadge> Badges { get; set;  }
     }
 }
