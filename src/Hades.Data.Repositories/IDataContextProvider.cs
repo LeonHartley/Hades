@@ -1,12 +1,11 @@
-﻿using Cassandra;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace Hades.Data.Repositories
 {
-    public interface ISessionProvider
+    public interface IDataContextProvider
     {
-        ISession GetSession();
+        IDataContext GetContext();
     }
 }

@@ -2,8 +2,9 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Hades.Data.Model.Players;
 
-namespace Hades.Data.Model.Players
+namespace Hades.Data.Model
 {
     public class Caches
     {
