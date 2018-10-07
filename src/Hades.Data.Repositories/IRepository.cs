@@ -6,6 +6,6 @@ namespace Hades.Data.Repositories
 {
     public interface IRepository
     {
-        int InstanceId { get; }
+
     }
 }

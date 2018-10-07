@@ -1,4 +1,5 @@
-﻿using Hades.Data.Repositories;
+﻿using Hades.Data.MySql.Repositories;
+using Hades.Data.Repositories;
 using Hades.Data.Repositories.Players;
 using MySql.Data.MySqlClient;
 using System;
@@ -8,18 +9,22 @@ namespace Hades.Data.MySql.Context
 {
     public class MySqlDataContext : IDataContext
     {
-        private readonly MySqlConnection _connection;
         private readonly MySqlTransaction _transaction;
+
+        private IPlayerRepository _playerRepository;
+        private IMessengerRepository _messengerRepository;
 
         public MySqlDataContext(MySqlConnection connection, MySqlTransaction transaction)
         {
-            _connection = connection;
+            Connection = connection
             _transaction = transaction;
         }
 
-        public IPlayerRepository PlayerRepository => throw new NotImplementedException();
+        public MySqlConnection Connection { get; }
 
-        public IMessengerRepository MessengerRepository => throw new NotImplementedException();
+        public IPlayerRepository PlayerRepository => _playerRepository ?? (_playerRepository = new PlayerRepository(this));
+
+        public IMessengerRepository MessengerRepository => _messengerRepository ?? (_messengerRepository = new MessengerRepository(this));
 
         public void Commit()
         {
@@ -34,7 +39,7 @@ namespace Hades.Data.MySql.Context
         public void Dispose()
         {
             _transaction.Dispose();
-            _connection.Dispose();
+            Connection.Dispose();
         }
     }
 }
