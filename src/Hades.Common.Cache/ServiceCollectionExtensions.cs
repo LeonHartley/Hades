@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Hades.Common.Cache.Redis;
 
 namespace Hades.Common.Cache
 {
@@ -14,6 +15,7 @@ namespace Hades.Common.Cache
             serviceCollection.AddSingleton<IRedisConnectionProvider, RedisConnectionProvider>();
             serviceCollection.AddSingleton<IRedisDatabaseProvider, RedisDatabaseProvider>();
             serviceCollection.AddSingleton<ICacheProvider, RedisCacheProvider>();
+            serviceCollection.AddSingleton<ICacheMapProvider, RedisCacheMapProvider>();
         }
     }
 }

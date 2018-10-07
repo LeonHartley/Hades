@@ -11,7 +11,7 @@ namespace Hades.Data.MySql.Repositories
     {
         public RepositoryBase(MySqlDataContext context)
         {
-            Context = Context;
+            Context = context;
         }
        
         public MySqlDataContext Context { get; }

@@ -16,7 +16,10 @@ namespace Hades.Data.MySql
 
         public MySqlConnection GetConnection()
         {
-            throw new NotImplementedException();
+            var connection = new MySqlConnection(_connectionStringProvider.ConnectionString);
+            connection.Open();
+
+            return connection;
         }
     }
 }

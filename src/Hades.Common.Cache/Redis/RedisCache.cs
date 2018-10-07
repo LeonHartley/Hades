@@ -10,7 +10,7 @@ namespace Hades.Common.Cache
     public class RedisCache<TKey, TVal> : ICache<TKey, TVal>
     {
         private readonly IDatabaseAsync _db;
-        private readonly string _keyFormat = nameof(TVal) + "-{0}";
+        private readonly string _keyFormat = typeof(TVal) + "-{0}";
 
         public RedisCache(IDatabaseAsync database)
         {

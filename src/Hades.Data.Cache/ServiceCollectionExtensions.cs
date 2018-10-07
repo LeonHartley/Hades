@@ -12,7 +12,7 @@ namespace Hades.Data.Cache
     {
         public static void UseDataCache(this IServiceCollection serviceCollection)
         {
-            serviceCollection.AddSingleton<PlayerTokenStoreProvider, PlayerTokenStoreProvider>();
+            serviceCollection.AddSingleton<IPlayerTokenStoreProvider, PlayerTokenStoreProvider>();
             serviceCollection.AddSingleton<IPlayerCacheProvider, PlayerCacheProvider>();
             serviceCollection.AddSingleton<IPlayerDataCacheProvider, PlayerDataCacheProvider>();
         }

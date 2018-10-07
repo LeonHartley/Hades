@@ -17,17 +17,17 @@ namespace Hades.Common.Cache.Redis
 
         public Task<bool> Add(TKey key, TVal val)
         {
-            throw new NotImplementedException();
+            return Task.FromResult(true);
         }
 
         public Task<MapResult<TVal>> Get(TKey key)
         {
-            throw new NotImplementedException();
+            return Task.FromResult(new MapResult<TVal>(false, default(TVal)));
         }
 
         public Task<bool> Remove(TKey key)
         {
-            throw new NotImplementedException();
+            return Task.FromResult(true);
         }
     }
 }

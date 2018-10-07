@@ -9,6 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
+using Hades.Common.Cache;
 
 namespace Hades.Data.Processors.Players
 {
@@ -17,15 +18,15 @@ namespace Hades.Data.Processors.Players
         private readonly IPlayerTokenStore _playerTokenStore;
         private readonly IPlayerDataService _playerDataService;
 
-        public PlayerAuthenticationProcessor(IPlayerTokenStore playerTokenStore, IPlayerDataService playerDataService)
+        public PlayerAuthenticationProcessor(IPlayerTokenStoreProvider playerTokenStoreProvider, IPlayerDataService playerDataService)
         {
-            _playerTokenStore = playerTokenStore;
+            _playerTokenStore = playerTokenStoreProvider.GetTokenStore();
             _playerDataService = playerDataService;
         }
 
         public async Task<Player> GetPlayer(string authenticationToken)
         {
-            var playerId = await _playerTokenStore.GetAsync(authenticationToken);
+            var playerId = new MapResult<long>(true, 1); //await _playerTokenStore.GetAsync(authenticationToken);
 
             if (!playerId.HasValue)
             {

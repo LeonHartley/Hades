@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Hades.Common.Cache;
 using Hades.Data.Cache;
 using Hades.Data.MySql;
+using Hades.Data.Processors;
 using Hades.Data.Repositories;
 using Hades.Data.Services;
 using Microsoft.AspNetCore.Builder;
@@ -36,11 +37,12 @@ namespace Hades.Data.WebApi
 
             services.UseMySqlData(new MySqlDataOptions
             {
-                ConnectionString = "hi"
+                ConnectionString = "Server=localhost;Database=hades_game;Uid=dbuser;Pwd=123123;"
             });
 
             services.UseDataCache();
             services.UseDataServices();
+            services.UseDataProcessors();
         }
         
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
