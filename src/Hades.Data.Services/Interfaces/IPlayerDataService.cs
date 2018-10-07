@@ -9,5 +9,7 @@ namespace Hades.Data.Services.Interfaces
     public interface IPlayerDataService
     {
         Task<Player> GetPlayer(long id);
+
+        Task<PlayerData> GetPlayerData(long id);
     }
 }

@@ -8,38 +8,22 @@ using System.Text;
 using System.Threading.Tasks;
 using Hades.Data.Exceptions.Errors;
 using Hades.Data.Processors.Interfaces;
+using Hades.Data.Services.Interfaces;
 
 namespace Hades.Data.Processors
 {
     public class PlayerDataProcessor : IPlayerDataProcessor
     {
-        private readonly ICacheMap<string, long> _playerAuthStore;
-        private readonly ICache<Player> _playerDataCache;
-        private readonly IDataContextProvider _dataContextProvider;
+        private readonly IPlayerDataService _playerDataService;
 
-        public PlayerDataProcessor(
-            ICacheMapProvider cacheMapProvider,
-            IDataContextProvider dataContextProvider)
+        public PlayerDataProcessor(IPlayerDataService playerDataService)
         {
-            _playerAuthStore = cacheMapProvider.GetMap<string, long>(new CacheId<object>("PlayerAuthenticationStore"));
+            _playerDataService = playerDataService;
         }
 
-        public async Task<Player> Authenticate(string authenticationToken)
+        public async Task<PlayerData> GetPlayerData(long id)
         {
-            var playerId = await _playerAuthStore.Get(authenticationToken);
-
-            if(playerId == 0)
-            {
-                throw new PlayerAuthenticationException(PlayerAuthenticationError.InvalidTicket);
-            }
-
-            using (IDataContext ctx = _dataContextProvider.GetContext())
-            {
-                return new Player
-                {
-                    Data = await ctx.PlayerRepository.GetPlayerById(playerId)
-                };
-            }
+            return await _playerDataService.GetPlayerData(id);
         }
     }
 }

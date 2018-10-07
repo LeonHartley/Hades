@@ -11,9 +11,7 @@ namespace Hades.Data.MySql.Context
         private readonly MySqlConnection _connection;
         private readonly MySqlTransaction _transaction;
 
-        public MySqlDataContext(
-            MySqlConnection connection,
-            MySqlTransaction transaction)
+        public MySqlDataContext(MySqlConnection connection, MySqlTransaction transaction)
         {
             _connection = connection;
             _transaction = transaction;

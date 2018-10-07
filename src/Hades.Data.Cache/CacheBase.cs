@@ -29,7 +29,7 @@ namespace Hades.Data.Cache
             
             if(item != null)
             {
-                _internalCache.Add(key, item);
+                await _internalCache.Add(key, item);
             }
 
             return item;

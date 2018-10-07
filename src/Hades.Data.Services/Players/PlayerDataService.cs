@@ -10,8 +10,12 @@ namespace Hades.Data.Services.Players
     {
         private IDataContextProvider _contextProvider;
         private IPlayerCache _playerCache;
+        private IPlayerDataCache _playerDataCache;
 
-        public PlayerDataService(IDataContextProvider dataContextProvider, IPlayerCache playerCache)
+        public PlayerDataService(
+            IDataContextProvider dataContextProvider,
+            IPlayerCache playerCache, 
+            IPlayerDataCache playerDataCache)
         {
             _contextProvider = dataContextProvider;
             _playerCache = playerCache;
@@ -21,11 +25,23 @@ namespace Hades.Data.Services.Players
         {
             using (var context = _contextProvider.GetContext())
             {
-                return await _playerCache.Get(id, async (playerId) => {
+                return await _playerCache.Get(id, async (playerId) =>
+                {
                     return new Player
                     {
                         Data = await context.PlayerRepository.GetPlayerById(playerId)
                     };
+                });
+            }
+        }
+
+        public async Task<PlayerData> GetPlayerData(long id)
+        {
+            using (var context = _contextProvider.GetContext())
+            {
+                return await _playerDataCache.Get(id, async (playerId) =>
+                {
+                    return await context.PlayerRepository.GetPlayerById(playerId);
                 });
             }
         }
