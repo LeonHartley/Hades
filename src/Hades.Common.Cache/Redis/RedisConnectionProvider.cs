@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using StackExchange.Redis;
 
-namespace Hades.Data.Cache
+namespace Hades.Common.Cache
 {
     class RedisConnectionProvider : IRedisConnectionProvider
     {

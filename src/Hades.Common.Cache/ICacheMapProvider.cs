@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Hades.Data.Cache
+namespace Hades.Common.Cache
 {
     public interface ICacheMapProvider
     {

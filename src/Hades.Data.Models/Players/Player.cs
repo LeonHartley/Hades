@@ -1,4 +1,4 @@
-﻿using Hades.Data.Cache;
+﻿using Hades.Common.Cache;
 using Hades.Data.Model.Players.Inventory;
 using Hades.Data.Model.Players.Messenger;
 using System;

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Hades.Data.Cache
+namespace Hades.Common.Cache
 {
     public interface ICacheMap<TKey, TVal>
     {

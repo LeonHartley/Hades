@@ -11,6 +11,7 @@
     <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Hades.Common.Cache\Hades.Common.Cache.csproj" />
     <ProjectReference Include="..\Hades.Data.Models\Hades.Data.Model.csproj" />
     <ProjectReference Include="..\Hades.Data.MySql\Hades.Data.MySql.csproj" />
     <ProjectReference Include="..\Hades.Data.Repositories\Hades.Data.Repositories.csproj" />

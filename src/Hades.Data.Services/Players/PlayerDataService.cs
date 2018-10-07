@@ -1,18 +1,17 @@
-﻿using System.Runtime.InteropServices.ComTypes;
-using Hades.Data.Repositories;
+﻿using Hades.Data.Repositories;
 using Hades.Data.Services.Interfaces;
 using System.Threading.Tasks;
-using Hades.Data.Cache;
 using Hades.Data.Model.Players;
+using Hades.Data.Cache.Interfaces;
 
 namespace Hades.Data.Services.Players
 {
     public class PlayerDataService : IPlayerDataService
     {
         private IDataContextProvider _contextProvider;
-        private ICache<Player> _playerCache;
+        private IPlayerCache _playerCache;
 
-        public PlayerDataService(ICache<Player> playerCache, IDataContextProvider dataContextProvider)
+        public PlayerDataService(IDataContextProvider dataContextProvider, IPlayerCache playerCache)
         {
             _contextProvider = dataContextProvider;
             _playerCache = playerCache;
@@ -22,17 +21,12 @@ namespace Hades.Data.Services.Players
         {
             using (var context = _contextProvider.GetContext())
             {
-                var player = await _playerCache.Get(id);
-
-                if (player != null)
-                {
-                    return player;
-                }
-                
-                var player = return new Player
-                {
-                    Data = await context.PlayerRepository.GetPlayerById(id)
-                };
+                return await _playerCache.Get(id, async (playerId) => {
+                    return new Player
+                    {
+                        Data = await context.PlayerRepository.GetPlayerById(playerId)
+                    };
+                });
             }
         }
     }

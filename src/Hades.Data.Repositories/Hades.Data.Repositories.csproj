@@ -9,7 +9,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Hades.Data.Cache\Hades.Data.Cache.csproj" />
     <ProjectReference Include="..\Hades.Data.Models\Hades.Data.Model.csproj" />
   </ItemGroup>
 

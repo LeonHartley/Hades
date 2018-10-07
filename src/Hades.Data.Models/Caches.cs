@@ -1,4 +1,4 @@
-﻿using Hades.Data.Cache;
+﻿using Hades.Common.Cache;
 using System;
 using System.Collections.Generic;
 using System.Text;

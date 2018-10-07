@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 using StackExchange.Redis;
 
-namespace Hades.Data.Cache
+namespace Hades.Common.Cache
 {
-    public class RedisCache<T> : ICache<T> where T : ICacheItem
+    public class RedisCache<T> : ICache<TKey, TVal> where T : ICacheItem
     {
         private readonly IDatabaseAsync _db;
         private readonly string _keyFormat = nameof(T) + "-{0}";
@@ -20,7 +20,7 @@ namespace Hades.Data.Cache
         
         public CacheId<T> Id { get; }
 
-        public async Task<bool> Add(T cacheItem)
+        public async Task<bool> Add(TKey key, TVal cacheItem)
         {
             var data = JsonConvert.SerializeObject(cacheItem);
 

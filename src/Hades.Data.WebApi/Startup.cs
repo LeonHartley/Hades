@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Hades.Data.Cache;
-using Hades.Data.Cassandra;
+using Hades.Common.Cache;
 using Hades.Data.MySql;
 using Hades.Data.Repositories;
 using Microsoft.AspNetCore.Builder;

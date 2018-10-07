@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Hades.Data.Cache.Redis
+namespace Hades.Common.Cache.Redis
 {
     public class RedisCacheMap<TKey, TVal> : ICacheMap<TKey, TVal>
     {

@@ -5,8 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Hades.Common.Cache\Hades.Common.Cache.csproj" />
-    <ProjectReference Include="..\Hades.Data.Models\Hades.Data.Model.csproj" />
+    <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
+    <PackageReference Include="StackExchange.Redis" Version="2.0.513" />
   </ItemGroup>
 
 </Project>
