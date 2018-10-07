@@ -6,6 +6,8 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
+using Hades.Data.Exceptions.Errors;
+using Hades.Data.Processors.Interfaces;
 
 namespace Hades.Data.Processors
 {
@@ -28,7 +30,7 @@ namespace Hades.Data.Processors
 
             if(playerId == 0)
             {
-                throw new PlayerAuthenticationException("No player ID found in authentication store");
+                throw new PlayerAuthenticationException(PlayerAuthenticationError.InvalidTicket);
             }
 
             using (IDataContext ctx = _dataContextProvider.GetContext())

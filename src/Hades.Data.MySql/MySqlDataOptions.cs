@@ -4,7 +4,8 @@ using System.Text;
 
 namespace Hades.Data.MySql
 {
-    class IMySqlConnectionProvider
+    public class MySqlDataOptions
     {
+        public string ConnectionString { get; set; }
     }
 }

@@ -13,7 +13,7 @@ namespace Hades.Data.WebApi.Controllers
     [ApiController]
     public class PlayerController : ApiController
     {
-        private IPlayerService _playerService;
+        private IPlayerDataProcessor _playerService;
 
         public PlayerController(IPlayerService playerService)
         {

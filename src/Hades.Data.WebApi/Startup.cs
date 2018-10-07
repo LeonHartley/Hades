@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Hades.Data.Cache;
 using Hades.Data.Cassandra;
+using Hades.Data.MySql;
 using Hades.Data.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -32,8 +33,10 @@ namespace Hades.Data.WebApi
                 Port = 6379
             });
 
-            services.UseCassandraData();
-            services.UseRepositoryServices();
+            services.UseMySqlData(new MySqlDataOptions
+            {
+                ConnectionString = "hi"
+            });
         }
         
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
