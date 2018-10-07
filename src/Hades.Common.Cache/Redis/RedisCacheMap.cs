@@ -20,7 +20,7 @@ namespace Hades.Common.Cache.Redis
             throw new NotImplementedException();
         }
 
-        public Task<TVal> Get(TKey key)
+        public Task<MapResult<TVal>> Get(TKey key)
         {
             throw new NotImplementedException();
         }

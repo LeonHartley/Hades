@@ -8,6 +8,6 @@ namespace Hades.Data.Model
 {
     public class Caches
     {
-        public static CacheId<Player> PlayerCache = new CacheId<Player>("Hades.Caches.PlayerCache");
+        public static CacheId<long, Player> PlayerCache = new CacheId<long, Player>();
     }
 }

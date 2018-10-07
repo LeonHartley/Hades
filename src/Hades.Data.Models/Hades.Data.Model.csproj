@@ -2,4 +2,7 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
   </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Hades.Common.Cache\Hades.Common.Cache.csproj" />
+  </ItemGroup>
 </Project>
