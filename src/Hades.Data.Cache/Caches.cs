@@ -9,5 +9,7 @@ namespace Hades.Data.Cache
     internal class Caches
     {
         public static CacheId<long, Player> PlayerCache = new CacheId<long, Player>();
+
+        public static CacheId<long, PlayerData> PlayerDataCache = new CacheId<long, PlayerData>();
     }
 }

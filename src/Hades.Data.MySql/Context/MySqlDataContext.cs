@@ -16,7 +16,7 @@ namespace Hades.Data.MySql.Context
 
         public MySqlDataContext(MySqlConnection connection, MySqlTransaction transaction)
         {
-            Connection = connection
+            Connection = connection;
             _transaction = transaction;
         }
 

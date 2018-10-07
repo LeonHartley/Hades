@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Hades.Common.Cache;
 using Hades.Data.MySql;
 using Hades.Data.Repositories;
+using Hades.Data.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -36,6 +37,8 @@ namespace Hades.Data.WebApi
             {
                 ConnectionString = "hi"
             });
+
+            services.UseDataServices();
         }
         
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)

@@ -9,7 +9,7 @@ namespace Hades.Data.Cache
     {
         public static void UseDataCache(this IServiceCollection serviceCollection)
         {
-
+            serviceCollection.AddSingleton
         }
     }
 }
