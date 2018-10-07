@@ -6,6 +6,6 @@ namespace Hades.Common.Cache
 {
     public interface ICacheProvider
     {
-        ICache<T> GetCache<T>(CacheId<T> cacheId) where T : ICacheItem;
+        ICache<TKey, TVal> GetCache<TKey, TVal>(CacheId<TKey, TVal> cacheId);
     }
 }

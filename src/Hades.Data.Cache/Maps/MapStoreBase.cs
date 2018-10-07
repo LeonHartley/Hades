@@ -20,7 +20,7 @@ namespace Hades.Data.Cache.Maps
             return await _internalMap.Add(key, val);
         }
 
-        public async Task<TVal> GetAsync(TKey key)
+        public async Task<MapResult<TVal>> GetAsync(TKey key)
         {
             return await _internalMap.Get(key);
         }

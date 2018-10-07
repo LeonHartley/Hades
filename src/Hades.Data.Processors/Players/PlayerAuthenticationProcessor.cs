@@ -1,5 +1,7 @@
 ﻿using Hades.Data.Cache.Interfaces;
 using Hades.Data.Cache.Maps;
+using Hades.Data.Exceptions;
+using Hades.Data.Exceptions.Errors;
 using Hades.Data.Model.Players;
 using Hades.Data.Processors.Interfaces;
 using Hades.Data.Services.Interfaces;
@@ -24,7 +26,14 @@ namespace Hades.Data.Processors.Players
         public async Task<Player> GetPlayer(string authenticationToken)
         {
             var playerId = await _playerTokenStore.GetAsync(authenticationToken);
-            return await _playerDataService.GetPlayer(playerId);
+
+            if (!playerId.HasValue)
+            {
+                throw new PlayerAuthenticationException(PlayerAuthenticationError.InvalidTicket);
+            }
+            
+            await _playerTokenStore.RemoveAsync(authenticationToken);
+            return await _playerDataService.GetPlayer(playerId.Result);
         }
     }
 }

@@ -6,6 +6,6 @@ namespace Hades.Common.Cache
 {
     public interface ICacheMapProvider
     {
-        ICacheMap<TKey, TVal> GetMap<TKey, TVal>(CacheId<object> id);
+        ICacheMap<TKey, TVal> GetMap<TKey, TVal>(string name);
     }
 }

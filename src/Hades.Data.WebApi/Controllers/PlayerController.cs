@@ -2,43 +2,45 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Hades.Data.Exceptions;
 using Hades.Data.Model.Players;
-using Hades.Data.Repositories.Services;
+using Hades.Data.Processors.Interfaces;
 using Hades.Data.WebApi.Model;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Hades.Data.WebApi.Controllers
 {
-    [Route("api/v1/player")]
     [ApiController]
+    [Route("api/v1/player")]
+    [Produces("application/json")]
     public class PlayerController : ApiController
     {
-        private IPlayerDataProcessor _playerService;
+        private IPlayerAuthenticationProcessor _playerAuthenticationProcessor;
 
-        public PlayerController(IPlayerService playerService)
+        public PlayerController(IPlayerAuthenticationProcessor playerAuthenticationProcessor)
         {
-            _playerService = playerService;
+            _playerAuthenticationProcessor = playerAuthenticationProcessor;
         }
         
         [HttpGet]
-        [Produces("application/json")]
         [Route("authenticate/{ssoTicket}")]
         public async Task<IActionResult> Authenticate([FromRoute] string ssoTicket)
         {
-            var player = await _playerService.Authenticate(ssoTicket);
-            var res = new ServerResponse<Player>
+            try
             {
-                Data = player,
-                Success = player != null
-            };
-
-            if(player == null)
-            {
-                return NotFound(res);
+                return Ok(new ServerResponse<Player>
+                {
+                    Data = await _playerAuthenticationProcessor.GetPlayer(ssoTicket),
+                    Success = true
+                });
             }
-            else
+            catch (PlayerAuthenticationException e)
             {
-                return Ok(res);
+                return NotFound(new ServerResponse<Player>
+                {
+                    Success = false,
+                    Error = e.Error
+                });
             }
         }
     }

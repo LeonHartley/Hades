@@ -7,7 +7,7 @@ namespace Hades.Common.Cache
 {
     public interface ICacheMap<TKey, TVal>
     {
-        Task<TVal> Get(TKey key);
+        Task<MapResult<TVal>> Get(TKey key);
 
         Task<bool> Remove(TKey key);
 

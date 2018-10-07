@@ -13,11 +13,11 @@ namespace Hades.Common.Cache
             _databaseProvider = databaseProvider;
         }
 
-        public ICache<T> GetCache<T>(CacheId<T> cacheId) where T : ICacheItem
+        public ICache<TKey, TVal> GetCache<TKey, TVal>(CacheId<TKey, TVal> cacheId)
         {
             var database = _databaseProvider.GetDatabase();
 
-            return new RedisCache<T>(cacheId, database);
+            return new RedisCache<TKey, TVal>(database);
         }
     }
 }
