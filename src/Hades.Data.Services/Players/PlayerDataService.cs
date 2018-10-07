@@ -28,6 +28,7 @@ namespace Hades.Data.Services.Players
             {
                 return await _playerCache.Get(id, async playerId => new Player
                 {
+                    Id = id,
                     Data = await context.PlayerRepository.GetPlayerById(playerId)
                 });
             }
@@ -37,10 +38,8 @@ namespace Hades.Data.Services.Players
         {
             using (var context = _contextProvider.GetContext())
             {
-                return await _playerDataCache.Get(id, async playerId =>
-                {
-                    return await context.PlayerRepository.GetPlayerById(playerId);
-                });
+                return await _playerDataCache.Get(id, 
+                    async playerId => await context.PlayerRepository.GetPlayerById(playerId));
             }
         }
     }

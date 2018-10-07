@@ -20,7 +20,7 @@ namespace Hades.Data.MySql.Repositories
         public async Task<PlayerData> GetPlayerById(long playerId)
         {
             return await Connection.QueryFirstOrDefaultAsync<PlayerData>(@"
-                SELECT p.Id, p.Username, a.Figure, a.Motto, a.Credits, a.VipPoints, a.ActivityPoints, a.AchievementPoints, a.DateCreated, a.DateLastActivity, a.FavouriteGroup, a.RankId
+                SELECT p.Id, p.Name, a.Figure, a.Motto, a.Credits, a.VipPoints, a.ActivityPoints, a.AchievementPoints, a.DateCreated, a.DateLastActivity, a.FavouriteGroup, a.RankId
                 FROM players p LEFT JOIN player_avatars a ON a.Id = p.AvatarId WHERE p.Id = @playerId", new { playerId });
         }
 

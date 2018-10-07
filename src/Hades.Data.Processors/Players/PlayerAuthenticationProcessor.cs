@@ -26,7 +26,7 @@ namespace Hades.Data.Processors.Players
 
         public async Task<Player> GetPlayer(string authenticationToken)
         {
-            var playerId = new MapResult<long>(true, 1); //await _playerTokenStore.GetAsync(authenticationToken);
+            var playerId = await _playerTokenStore.GetAsync(authenticationToken);
 
             if (!playerId.HasValue)
             {

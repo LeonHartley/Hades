@@ -2,6 +2,7 @@
 {
     public enum PlayerAuthenticationError
     {
+        Unknown,
         InvalidTicket,
         Banned,
         Disabled
