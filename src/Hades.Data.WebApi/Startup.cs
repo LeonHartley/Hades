@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Hades.Common.Cache;
+using Hades.Data.Cache;
 using Hades.Data.MySql;
 using Hades.Data.Repositories;
 using Hades.Data.Services;
@@ -38,6 +39,7 @@ namespace Hades.Data.WebApi
                 ConnectionString = "hi"
             });
 
+            services.UseDataCache();
             services.UseDataServices();
         }
         

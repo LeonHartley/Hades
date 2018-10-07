@@ -1,12 +1,9 @@
-<Project Sdk="Microsoft.NET.Sdk">
-
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
   </PropertyGroup>
-
   <ItemGroup>
     <ProjectReference Include="..\Hades.Common.Cache\Hades.Common.Cache.csproj" />
     <ProjectReference Include="..\Hades.Data.Models\Hades.Data.Model.csproj" />
   </ItemGroup>
-
 </Project>

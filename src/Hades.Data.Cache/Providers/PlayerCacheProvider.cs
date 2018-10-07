@@ -7,7 +7,7 @@ using System.Text;
 
 namespace Hades.Data.Cache.Providers
 {
-    public class PlayerCacheProvider
+    public class PlayerCacheProvider : IPlayerCacheProvider
     {
         private ICacheProvider _cacheProvider;
 
