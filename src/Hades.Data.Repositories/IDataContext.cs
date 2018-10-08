@@ -11,6 +11,8 @@ namespace Hades.Data.Repositories
         IPlayerRepository PlayerRepository { get; }
 
         IMessengerRepository MessengerRepository { get; }
+        
+        IInventoryRepository InventoryRepository { get; }
 
         void Commit();
 

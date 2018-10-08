@@ -5,5 +5,6 @@
   <ItemGroup>
     <ProjectReference Include="..\Hades.Common.Cache\Hades.Common.Cache.csproj" />
     <ProjectReference Include="..\Hades.Data.Models\Hades.Data.Model.csproj" />
+    <ProjectReference Include="..\Hades.Data.Repositories\Hades.Data.Repositories.csproj" />
   </ItemGroup>
 </Project>

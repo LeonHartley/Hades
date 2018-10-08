@@ -22,7 +22,7 @@ namespace Hades.Common.Cache.Redis
 
         public Task<MapResult<TVal>> Get(TKey key)
         {
-            return Task.FromResult(new MapResult<TVal>(false, default(TVal)));
+            return Task.FromResult(new MapResult<TVal>(true, default(TVal)));
         }
 
         public Task<bool> Remove(TKey key)

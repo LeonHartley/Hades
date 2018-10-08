@@ -8,10 +8,10 @@ namespace Hades.Data.Cache.Maps
 {
     public interface IMapStore<TKey, TVal>
     {
-        Task<MapResult<TVal>> GetAsync(TKey key);
+        Task<MapResult<TVal>> Get(TKey key);
 
-        Task<bool> RemoveAsync(TKey key);
+        Task<bool> Remove(TKey key);
 
-        Task<bool> AddAsync(TKey key, TVal val);
+        Task<bool> Add(TKey key, TVal val);
     }
 }

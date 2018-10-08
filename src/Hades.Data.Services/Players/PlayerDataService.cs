@@ -8,9 +8,9 @@ namespace Hades.Data.Services.Players
 {
     public class PlayerDataService : IPlayerDataService
     {
-        private IDataContextProvider _contextProvider;
-        private IPlayerCache _playerCache;
-        private IPlayerDataCache _playerDataCache;
+        private readonly IDataContextProvider _contextProvider;
+        private readonly IPlayerCache _playerCache;
+        private readonly IPlayerDataCache _playerDataCache;
 
         public PlayerDataService(
             IDataContextProvider dataContextProvider,
@@ -26,10 +26,12 @@ namespace Hades.Data.Services.Players
         {
             using (var context = _contextProvider.GetContext())
             {
-                return await _playerCache.Get(id, async playerId => new Player
+                return await _playerCache.Get(id, context, async (playerId, ctx) => new Player
                 {
                     Id = id,
-                    Data = await context.PlayerRepository.GetPlayerById(playerId)
+                    Data = await ctx.PlayerRepository.GetPlayerById(playerId),
+                    Badges = await ctx.InventoryRepository.GetBadges(playerId),
+                    Friends = await ctx.MessengerRepository.GetFriendships(playerId)
                 });
             }
         }
@@ -38,8 +40,8 @@ namespace Hades.Data.Services.Players
         {
             using (var context = _contextProvider.GetContext())
             {
-                return await _playerDataCache.Get(id, 
-                    async playerId => await context.PlayerRepository.GetPlayerById(playerId));
+                return await _playerDataCache.Get(id, context,
+                    async (playerId, ctx) => await ctx.PlayerRepository.GetPlayerById(playerId));
             }
         }
     }

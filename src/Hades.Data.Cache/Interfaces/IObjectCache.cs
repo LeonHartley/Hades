@@ -1,13 +1,11 @@
-﻿using Hades.Common.Cache;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System;
 using System.Threading.Tasks;
+using Hades.Data.Repositories;
 
 namespace Hades.Data.Cache.Interfaces
 {
     public interface IObjectCache<TKey, TObj>
     {
-        Task<TObj> Get(TKey key, Func<TKey, Task<TObj>> loader);
+        Task<TObj> Get(TKey key, IDataContext ctx, Func<TKey, IDataContext, Task<TObj>> loader);
     }
 }

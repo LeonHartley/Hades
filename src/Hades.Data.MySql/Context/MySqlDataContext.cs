@@ -13,6 +13,7 @@ namespace Hades.Data.MySql.Context
 
         private IPlayerRepository _playerRepository;
         private IMessengerRepository _messengerRepository;
+        private IInventoryRepository _inventoryRepository;
 
         public MySqlDataContext(MySqlConnection connection, MySqlTransaction transaction)
         {
@@ -22,9 +23,14 @@ namespace Hades.Data.MySql.Context
 
         public MySqlConnection Connection { get; }
 
-        public IPlayerRepository PlayerRepository => _playerRepository ?? (_playerRepository = new PlayerRepository(this));
+        public IPlayerRepository PlayerRepository => 
+            _playerRepository ?? (_playerRepository = new PlayerRepository(this));
 
-        public IMessengerRepository MessengerRepository => _messengerRepository ?? (_messengerRepository = new MessengerRepository(this));
+        public IMessengerRepository MessengerRepository =>
+            _messengerRepository ?? (_messengerRepository = new MessengerRepository(this));
+
+        public IInventoryRepository InventoryRepository =>
+            _inventoryRepository ?? (_inventoryRepository = new InventoryRepository(this));
 
         public void Commit()
         {

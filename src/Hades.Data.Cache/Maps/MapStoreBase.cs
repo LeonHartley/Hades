@@ -10,22 +10,22 @@ namespace Hades.Data.Cache.Maps
     {
         private readonly ICacheMap<TKey, TVal> _internalMap;
         
-        public MapStoreBase(ICacheMap<TKey, TVal> internalMap)
+        protected MapStoreBase(ICacheMap<TKey, TVal> internalMap)
         {
             _internalMap = internalMap;
         }
 
-        public async Task<bool> AddAsync(TKey key, TVal val)
+        public async Task<bool> Add(TKey key, TVal val)
         {
             return await _internalMap.Add(key, val);
         }
 
-        public async Task<MapResult<TVal>> GetAsync(TKey key)
+        public async Task<MapResult<TVal>> Get(TKey key)
         {
             return await _internalMap.Get(key);
         }
 
-        public async Task<bool> RemoveAsync(TKey key)
+        public async Task<bool> Remove(TKey key)
         {
             return await _internalMap.Remove(key);
         }

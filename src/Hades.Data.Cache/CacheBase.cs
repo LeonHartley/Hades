@@ -4,19 +4,20 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
+using Hades.Data.Repositories;
 
 namespace Hades.Data.Cache
 {
     public abstract class CacheBase<TKey, TVal> : IObjectCache<TKey, TVal>
     {
-        private ICache<TKey, TVal> _internalCache;
+        private readonly ICache<TKey, TVal> _internalCache;
 
-        public CacheBase(ICache<TKey, TVal> internalCache)
+        protected CacheBase(ICache<TKey, TVal> internalCache)
         {
             _internalCache = internalCache;
         }
 
-        public async Task<TVal> Get(TKey key, Func<TKey, Task<TVal>> loader)
+        public async Task<TVal> Get(TKey key, IDataContext ctx, Func<TKey, IDataContext, Task<TVal>> loader)
         {
             var item = await _internalCache.Get(key);
 
@@ -25,7 +26,7 @@ namespace Hades.Data.Cache
                 return item;
             }
 
-            item = await loader.Invoke(key);
+            item = await loader.Invoke(key, ctx);
             
             if(item != null)
             {

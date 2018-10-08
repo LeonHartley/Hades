@@ -6,7 +6,7 @@ namespace Hades.Data.Model.Players.Inventory
 {
     public class PlayerBadge
     {
-        public string Code { get; }
+        public string Code { get; set; }
 
         public int Slot { get; set; }
     }
