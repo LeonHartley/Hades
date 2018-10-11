@@ -21,7 +21,7 @@ CREATE TABLE IF NOT EXISTS `players` (
   PRIMARY KEY (`Id`),
   UNIQUE KEY `instance_id_username` (`InstanceId`,`Name`),
   KEY `avatar_id` (`AvatarId`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table hades_game.players: ~1 rows (approximately)
 /*!40000 ALTER TABLE `players` DISABLE KEYS */;
@@ -44,7 +44,7 @@ CREATE TABLE IF NOT EXISTS `player_avatars` (
   `FavouriteGroup` int(11) DEFAULT NULL,
   `RankId` int(11) DEFAULT NULL,
   PRIMARY KEY (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table hades_game.player_avatars: ~0 rows (approximately)
 /*!40000 ALTER TABLE `player_avatars` DISABLE KEYS */;
@@ -59,7 +59,7 @@ CREATE TABLE IF NOT EXISTS `player_badges` (
   `Slot` tinyint(4) DEFAULT '0',
   PRIMARY KEY (`PlayerId`,`Code`),
   KEY `PlayerId` (`PlayerId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table hades_game.player_badges: ~3 rows (approximately)
 /*!40000 ALTER TABLE `player_badges` DISABLE KEYS */;
@@ -76,7 +76,7 @@ CREATE TABLE IF NOT EXISTS `player_friends` (
   `Relationship` tinyint(4) DEFAULT '0',
   PRIMARY KEY (`PlayerId`,`FriendId`),
   KEY `PlayerId` (`PlayerId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table hades_game.player_friends: ~0 rows (approximately)
 /*!40000 ALTER TABLE `player_friends` DISABLE KEYS */;
