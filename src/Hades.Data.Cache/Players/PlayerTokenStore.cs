@@ -9,7 +9,7 @@ namespace Hades.Data.Cache.Players
 {
     public class PlayerTokenStore : MapStoreBase<string, long>, IPlayerTokenStore
     {
-        public PlayerTokenStore(ICacheMap<string, long> internalMap) : base(internalMap)
+        public PlayerTokenStore(ICacheMapProvider mapProvider) : base(mapProvider.GetMap<string, long>("playerTokenStore"))
         {
         }
     }
