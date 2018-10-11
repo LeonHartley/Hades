@@ -8,7 +8,7 @@ namespace Hades.Common.Cache
 {
     public static class ServiceCollectionExtensions
     {
-        public static void UseRedisCache(this IServiceCollection serviceCollection, RedisCacheOptions redisCacheOptions)
+        public static IServiceCollection UseRedisCache(this IServiceCollection serviceCollection, RedisCacheOptions redisCacheOptions)
         {
             serviceCollection.AddSingleton(redisCacheOptions);
 
@@ -16,6 +16,8 @@ namespace Hades.Common.Cache
             serviceCollection.AddSingleton<IRedisDatabaseProvider, RedisDatabaseProvider>();
             serviceCollection.AddSingleton<ICacheProvider, RedisCacheProvider>();
             serviceCollection.AddSingleton<ICacheMapProvider, RedisCacheMapProvider>();
+
+            return serviceCollection;
         }
     }
 }
