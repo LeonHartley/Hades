@@ -1,10 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Xml.Schema;
 using Hades.Data.Cache.Interfaces;
-using Hades.Data.Cache.Providers;
+using Hades.Data.Cache.Players;
 
 namespace Hades.Data.Cache
 {
@@ -12,9 +8,9 @@ namespace Hades.Data.Cache
     {
         public static void UseDataCache(this IServiceCollection serviceCollection)
         {
-            serviceCollection.AddSingleton<IPlayerTokenStoreProvider, PlayerTokenStoreProvider>();
-            serviceCollection.AddSingleton<IPlayerCacheProvider, PlayerCacheProvider>();
-            serviceCollection.AddSingleton<IPlayerDataCacheProvider, PlayerDataCacheProvider>();
+            serviceCollection.AddSingleton<IPlayerTokenStore, PlayerTokenStore>();
+            serviceCollection.AddSingleton<IPlayerDataCache, PlayerDataCache>();
+            serviceCollection.AddSingleton<IPlayerCache, PlayerCache>();
         }
     }
 }

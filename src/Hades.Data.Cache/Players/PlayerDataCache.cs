@@ -9,7 +9,7 @@ namespace Hades.Data.Cache.Players
 {
     public class PlayerDataCache : CacheBase<long, PlayerData>, IPlayerDataCache
     {
-        public PlayerDataCache(ICache<long, PlayerData> internalCache) : base(internalCache)
+        public PlayerDataCache(ICacheProvider cacheProvider) : base(cacheProvider.GetCache(Caches.PlayerDataCache))
         {
 
         }

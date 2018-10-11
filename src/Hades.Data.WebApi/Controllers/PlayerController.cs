@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Hades.Data.Exceptions;
 using Hades.Data.Model.Players;
 using Hades.Data.Processors.Interfaces;
@@ -15,7 +12,7 @@ namespace Hades.Data.WebApi.Controllers
     [Produces("application/json")]
     public class PlayerController : ApiController
     {
-        private IPlayerAuthenticationProcessor _playerAuthenticationProcessor;
+        private readonly IPlayerAuthenticationProcessor _playerAuthenticationProcessor;
 
         public PlayerController(IPlayerAuthenticationProcessor playerAuthenticationProcessor)
         {
@@ -36,7 +33,7 @@ namespace Hades.Data.WebApi.Controllers
             }
             catch (PlayerAuthenticationException e)
             {
-                return Unauthorized(new ServerResponse<Player>
+                return NotFound(new ServerResponse<Player>
                 {
                     Success = false,
                     Error = e.Error

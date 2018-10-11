@@ -14,12 +14,12 @@ namespace Hades.Data.Services.Players
 
         public PlayerDataService(
             IDataContextProvider dataContextProvider,
-            IPlayerCacheProvider playerCacheProvider, 
-            IPlayerDataCacheProvider playerDataCacheProvider)
+            IPlayerCache playerCache,
+            IPlayerDataCache playerDataCache)
         {
             _contextProvider = dataContextProvider;
-            _playerCache = playerCacheProvider.GetCache();
-            _playerDataCache = playerDataCacheProvider.GetCache();
+            _playerCache = playerCache;
+            _playerDataCache = playerDataCache;
         }
 
         public async Task<Player> GetPlayer(long id)
