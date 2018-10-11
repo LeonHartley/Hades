@@ -5,7 +5,6 @@ using Hades.Data.Model.Players;
 using Hades.Data.Processors.Interfaces;
 using Hades.Data.Services.Interfaces;
 using System.Threading.Tasks;
-using Hades.Common.Cache;
 
 namespace Hades.Data.Processors.Players
 {
@@ -28,7 +27,7 @@ namespace Hades.Data.Processors.Players
             {
                 throw new PlayerAuthenticationException(PlayerAuthenticationError.InvalidTicket);
             }
-            
+
             await _playerTokenStore.Remove(authenticationToken);
             return await _playerDataService.GetPlayer(playerId.Result);
         }

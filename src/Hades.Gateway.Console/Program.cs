@@ -1,6 +1,4 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using System;
 
 namespace Hades.Gateway.Console
 {
@@ -11,8 +9,6 @@ namespace Hades.Gateway.Console
             var serviceProvider = new ServiceCollection()
                 .AddLogging()
                 .BuildServiceProvider();
-
-
 
             while(true)
             {
