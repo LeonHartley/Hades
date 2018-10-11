@@ -10,6 +10,9 @@ namespace Hades.Data.WebApi.Controllers
 {
     public abstract class ApiController : ControllerBase
     {
-
+        protected IAsyncResult Unauthorized<T>(ServerResponse<T> response)
+        {
+            
+        }
     }
 }

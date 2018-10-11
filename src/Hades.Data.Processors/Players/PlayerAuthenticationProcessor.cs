@@ -19,9 +19,9 @@ namespace Hades.Data.Processors.Players
         private readonly IPlayerTokenStore _playerTokenStore;
         private readonly IPlayerDataService _playerDataService;
 
-        public PlayerAuthenticationProcessor(IPlayerTokenStoreProvider playerTokenStoreProvider, IPlayerDataService playerDataService)
+        public PlayerAuthenticationProcessor(IPlayerTokenStore playerTokenStore, IPlayerDataService playerDataService)
         {
-            _playerTokenStore = playerTokenStoreProvider.GetTokenStore();
+            _playerTokenStore = playerTokenStore;
             _playerDataService = playerDataService;
         }
 

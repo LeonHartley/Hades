@@ -1,9 +1,6 @@
-﻿using Hades.Common.Cache;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Hades.Data.Cache.Maps;
 
-namespace Hades.Data.Cache.Maps
+namespace Hades.Data.Cache.Interfaces
 {
     public interface IPlayerTokenStore : IMapStore<string, long>
     {

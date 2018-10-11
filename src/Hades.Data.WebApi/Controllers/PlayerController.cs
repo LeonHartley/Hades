@@ -36,7 +36,7 @@ namespace Hades.Data.WebApi.Controllers
             }
             catch (PlayerAuthenticationException e)
             {
-                return NotFound(new ServerResponse<Player>
+                return Unauthorized(new ServerResponse<Player>
                 {
                     Success = false,
                     Error = e.Error

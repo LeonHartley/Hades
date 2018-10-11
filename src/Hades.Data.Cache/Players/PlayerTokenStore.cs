@@ -3,6 +3,7 @@ using Hades.Data.Cache.Maps;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Hades.Data.Cache.Interfaces;
 
 namespace Hades.Data.Cache.Players
 {
