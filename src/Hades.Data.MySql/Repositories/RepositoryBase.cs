@@ -9,13 +9,13 @@ namespace Hades.Data.MySql.Repositories
 {
     public abstract class RepositoryBase
     {
-        public RepositoryBase(MySqlDataContext context)
+        protected RepositoryBase(MySqlDataContext context)
         {
             Context = context;
         }
-       
-        public MySqlDataContext Context { get; }
 
-        public MySqlConnection Connection => Context.Connection;
+        private MySqlDataContext Context { get; }
+
+        protected MySqlConnection Connection => Context.Connection;
     }
 }

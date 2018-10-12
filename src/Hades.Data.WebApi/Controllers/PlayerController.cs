@@ -36,7 +36,7 @@ namespace Hades.Data.WebApi.Controllers
                 return NotFound(new ServerResponse<Player>
                 {
                     Success = false,
-                    Error = e.Error
+                    Error = e.Error.ToString()
                 });
             }
         }

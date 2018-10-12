@@ -8,18 +8,18 @@ namespace Hades.Data.Services.Players
 {
     public class PlayerDataService : IPlayerDataService
     {
-        private readonly IDataContextProvider _contextProvider;
         private readonly IPlayerCache _playerCache;
         private readonly IPlayerDataCache _playerDataCache;
+        private readonly IDataContextProvider _contextProvider;
 
         public PlayerDataService(
-            IDataContextProvider dataContextProvider,
             IPlayerCache playerCache,
-            IPlayerDataCache playerDataCache)
+            IPlayerDataCache playerDataCache,
+            IDataContextProvider dataContextProvider)
         {
-            _contextProvider = dataContextProvider;
             _playerCache = playerCache;
             _playerDataCache = playerDataCache;
+            _contextProvider = dataContextProvider;
         }
 
         public async Task<Player> GetPlayer(long id)

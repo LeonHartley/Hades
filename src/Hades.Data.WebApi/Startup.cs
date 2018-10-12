@@ -37,7 +37,7 @@ namespace Hades.Data.WebApi
 
             services.UseMySqlData(new MySqlDataOptions
             {
-                ConnectionString = "Server=localhost;Database=hades_game;Uid=dbuser;Pwd=123123;"
+                ConnectionString = "Server=localhost;Database=hades_game;Uid=root;Pwd=password;SslMode=none"
             });
 
             services.UseDataCache();
@@ -47,16 +47,16 @@ namespace Hades.Data.WebApi
         
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
-            if (env.IsDevelopment())
-            {
+//            if (env.IsDevelopment())
+//            {
                 app.UseDeveloperExceptionPage();
-            }
-            else
-            {
-                app.UseHsts();
-            }
+//            }
+//            else
+//            {
+//                app.UseHsts();
+//            }
 
-            app.UseHttpsRedirection();
+//            app.UseHttpsRedirection();
             app.UseMvc();
         }
     }
