@@ -9,6 +9,8 @@ namespace Hades.Data.Processors.Interfaces
 {
     public interface IPlayerDataProcessor
     {
+        Task<Player> GetPlayer(long id);
+        
         Task<PlayerData> GetPlayerData(long id);
     }
 }

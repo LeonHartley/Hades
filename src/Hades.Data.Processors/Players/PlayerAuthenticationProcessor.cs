@@ -1,4 +1,5 @@
-﻿using Hades.Data.Cache.Interfaces;
+﻿using System;
+using Hades.Data.Cache.Interfaces;
 using Hades.Data.Exceptions;
 using Hades.Data.Exceptions.Errors;
 using Hades.Data.Model.Players;
@@ -19,7 +20,7 @@ namespace Hades.Data.Processors.Players
             _playerDataService = playerDataService;
         }
 
-        public async Task<Player> GetPlayer(string authenticationToken)
+        public async Task<Player> GetPlayer(string authenticationToken) 
         {
             var playerId = await _playerTokenStore.Get(authenticationToken);
 

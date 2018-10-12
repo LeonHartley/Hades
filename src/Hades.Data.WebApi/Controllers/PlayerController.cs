@@ -12,11 +12,57 @@ namespace Hades.Data.WebApi.Controllers
     [Produces("application/json")]
     public class PlayerController : ApiController
     {
+        private readonly IPlayerDataProcessor _playerDataProcessor;
         private readonly IPlayerAuthenticationProcessor _playerAuthenticationProcessor;
 
-        public PlayerController(IPlayerAuthenticationProcessor playerAuthenticationProcessor)
+        public PlayerController(
+            IPlayerDataProcessor playerDataProcessor,
+            IPlayerAuthenticationProcessor playerAuthenticationProcessor)
         {
+            _playerDataProcessor = playerDataProcessor;
             _playerAuthenticationProcessor = playerAuthenticationProcessor;
+        }
+
+        [HttpGet]
+        [Route("data/{playerId}")]
+        public async Task<IActionResult> GetPlayerData([FromRoute] long playerId)
+        {
+            try
+            {
+                return Ok(new ServerResponse<PlayerData>
+                {
+                    Data = await _playerDataProcessor.GetPlayerData(playerId)
+                });
+            }
+            catch (PlayerDataException e)
+            {
+                return NotFound(new ServerResponse<PlayerData>
+                {
+                    Success = false,
+                    Error = e.Error.ToString()
+                });
+            }
+        }
+
+        [HttpGet]
+        [Route("{playerId}")]
+        public async Task<IActionResult> GetPlayer([FromRoute] long playerId)
+        {
+            try
+            {
+                return Ok(new ServerResponse<Player>
+                {
+                    Data = await _playerDataProcessor.GetPlayer(playerId)
+                });
+            }
+            catch (PlayerDataException e)
+            {
+                return NotFound(new ServerResponse<Player>
+                {
+                    Success = false,
+                    Error = e.Error.ToString()
+                });
+            }
         }
         
         [HttpGet]

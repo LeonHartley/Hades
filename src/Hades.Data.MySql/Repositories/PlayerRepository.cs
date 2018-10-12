@@ -13,16 +13,16 @@ namespace Hades.Data.MySql.Repositories
 {
     public class PlayerRepository : RepositoryBase, IPlayerRepository
     {
+        private const string PlayerDataSelectSql = @"
+                SELECT p.Id, p.Name, a.Figure, a.Motto, a.Credits, a.VipPoints, a.ActivityPoints,
+                       a.AchievementPoints, a.DateCreated, a.DateLastActivity, a.FavouriteGroup, a.RankId
+                FROM players p LEFT JOIN player_avatars a ON a.Id = p.AvatarId";
+
         public PlayerRepository(MySqlDataContext context) : base(context)
         {
             
         }
 
-        private static string PlayerDataSelectSql => @"
-                SELECT p.Id, p.Name, a.Figure, a.Motto, a.Credits, a.VipPoints, a.ActivityPoints,
-                       a.AchievementPoints, a.DateCreated, a.DateLastActivity, a.FavouriteGroup, a.RankId
-                FROM players p LEFT JOIN player_avatars a ON a.Id = p.AvatarId";
-        
         public async Task<PlayerData> GetPlayerById(long playerId)
         {
             return await Connection.QueryFirstOrDefaultAsync<PlayerData>($@"{PlayerDataSelectSql} WHERE p.Id = @playerId", new { playerId });
